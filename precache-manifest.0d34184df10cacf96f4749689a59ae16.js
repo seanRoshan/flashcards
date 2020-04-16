@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "09b5adb739cdc4ebf070",
-    "url": "/flashcards/static/js/app.12de2d41.chunk.js"
+    "revision": "10c2153d7fd15ceca324",
+    "url": "/flashcards/static/js/app.5e8a7779.chunk.js"
   },
   {
     "revision": "8312768d5b9b2d41f230",
     "url": "/flashcards/static/js/runtime~app.1f8a3659.js"
   },
   {
-    "revision": "dd3bb7b30c9041221c75",
-    "url": "/flashcards/static/js/2.65cafc3b.chunk.js"
-  },
-  {
-    "revision": "d0c694b562b2208635f250762cd7fc79",
-    "url": "/flashcards/serve.json"
+    "revision": "53a85db81490b549fd56",
+    "url": "/flashcards/static/js/2.2915538a.chunk.js"
   },
   {
     "revision": "48c7ed4e7da9792af288a60d7242d615",
     "url": "/flashcards/expo-service-worker.js"
+  },
+  {
+    "revision": "d0c694b562b2208635f250762cd7fc79",
+    "url": "/flashcards/serve.json"
   },
   {
     "revision": "afd5733ac789ab1795f1ed7a26e1ecd3",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/flashcards/favicon.ico"
   },
   {
-    "revision": "5302f34770f3d4d8a8e3f5dcfb5c708a",
+    "revision": "5f912cdc92f8d1e3d0411d2017fda5ab",
     "url": "/flashcards/index.html"
   },
   {
