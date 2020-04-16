@@ -1,7 +1,14 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 import {ORANGE} from "./utils/colors";
 import FlashCardsService from "./services/Flashcards.service";
+import AppStatusBarComponent from "./components/AppStatusBar.component";
+import {createStore} from "redux";
+import reducer from './reducers';
+import middleware from './middlewares';
+import {Provider} from "react-redux";
+import {NavigationContainer} from "@react-navigation/native";
+import MainNavComponent from "./components/MainNav.component";
 
 function getDecks() {
     const service = new FlashCardsService("test");
@@ -19,8 +26,7 @@ function getDeck() {
 
 function saveDeckTitle() {
     const service = new FlashCardsService("test");
-    service.saveDeckTitle('test').then((results) => {
-        console.warn(results);
+    service.saveDeckTitle(JSON.stringify(new Date())).then((results) => {
     })
 }
 
@@ -36,39 +42,19 @@ function addCardToDeck() {
 }
 
 
-export default function App() {
-
-    return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => getDecks()}>
-                <Text style={styles.testText}>Get Decks</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => getDeck()}>
-                <Text style={styles.testText}>Get Deck</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => saveDeckTitle()}>
-                <Text style={styles.testText}>Save Title</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => addCardToDeck()}>
-                <Text style={styles.testText}>Add Card to deck</Text>
-            </TouchableOpacity>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    testText: {
-        color: ORANGE,
-        borderRadius: 25,
-        borderColor: ORANGE,
-        borderWidth: 1,
-        padding: 10
+export default class App extends Component {
+    render() {
+        return (
+            <Provider store={createStore(reducer, middleware)}>
+                <View style={{flex: 1}}>
+                    <NavigationContainer>
+                        <AppStatusBarComponent backgroundColor={ORANGE} barStyle="light-content"/>
+                        <MainNavComponent/>
+                    </NavigationContainer>
+                </View>
+            </Provider>
+        );
     }
-});
+
+
+}

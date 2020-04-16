@@ -6,6 +6,13 @@ export default class FlashCardsService {
         this.flashCardMockBackEnd = new FlashcardsBackend(userKey);
     }
 
+    static formatDecks(results) {
+        return Object.keys(results).map((key) => {
+            const deckCard = results[key];
+            return {...deckCard, id: key, counts: deckCard.questions.length}
+        });
+    }
+
     getDecks() {
         return this.flashCardMockBackEnd.getDecks();
     }
@@ -21,6 +28,5 @@ export default class FlashCardsService {
     addCardToDeck(title, question, answer) {
         return this.flashCardMockBackEnd.addCardToDeck(title, {question, answer});
     }
-
 
 }
