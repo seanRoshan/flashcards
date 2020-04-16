@@ -32,11 +32,11 @@ self.__precacheManifest = [
     "url": "/flashcards/favicon.ico"
   },
   {
-    "revision": "518b7ec9647b6dba9b57f199ce1f7131",
+    "revision": "5302f34770f3d4d8a8e3f5dcfb5c708a",
     "url": "/flashcards/index.html"
   },
   {
-    "revision": "74f7e54cacf6d7c71173faf6aa8dd7a4",
+    "revision": "cc39ec84c1d71866b386cc8580c7bae5",
     "url": "/flashcards/manifest.json"
   },
   {
