@@ -33,8 +33,8 @@ export default class FlashCardsService {
         return this.flashCardMockBackEnd.removeDeckTitle(title);
     }
 
-    addCardToDeck(title, question, answer) {
-        return this.flashCardMockBackEnd.addCardToDeck(title, {question, answer});
+    addCardToDeck(title, questionCard) {
+        return this.flashCardMockBackEnd.addCardToDeck(title, questionCard);
     }
 
 }

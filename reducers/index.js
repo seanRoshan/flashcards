@@ -20,6 +20,18 @@ function decks(state = {}, action) {
             const {[title]: value, ...newState} = state;
             return newState
         }
+
+        case APP_ACTION_TYPES.ADD_CARD: {
+            const {title, card} = action;
+            return {
+                ...state,
+                [title]: {
+                    ...state[title],
+                    ["questions"]: state[title].questions.concat(card)
+                }
+            }
+        }
+
         default: {
             return state;
         }

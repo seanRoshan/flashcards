@@ -35,7 +35,7 @@ function MainNavComponent() {
                 name="AddCard"
                 component={AddCardComponent}
                 options={{
-                    title: "",
+                    title: "Add Card",
                     headerTintColor: WHITE,
                     headerStyle: {
                         backgroundColor: ORANGE,
@@ -48,7 +48,7 @@ function MainNavComponent() {
                 name="Quiz"
                 component={QuizComponent}
                 options={{
-                    title: "",
+                    title: "Quiz",
                     headerTintColor: WHITE,
                     headerStyle: {
                         backgroundColor: ORANGE,
