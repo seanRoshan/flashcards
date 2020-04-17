@@ -6,18 +6,45 @@ import FlashCardsService from "../services/Flashcards.service";
 import SubmitButtonComponent from "../components/SubmitButton.component";
 import {BLUE, PURPLE, WHITE, YELLOW} from "../utils/colors";
 import TextButton from "../components/TextButton.component";
+import {removeDeck} from "../actions";
 
 class DeckCardDetailComponent extends Component {
 
 
-    addCard = () => {
-        console.log("addCard");
+    toAddCard = () => {
+        const {navigation} = this.props;
+        navigation.navigate(
+            'AddCard',
+        )
+    }
+
+    toQuiz = () => {
+        const {navigation} = this.props;
+        navigation.navigate(
+            'Quiz',
+        )
     };
 
-    startQuiz = () => {
-        console.log("startQuiz");
+    toHome = () => {
+        const {navigation} = this.props;
+        navigation.navigate(
+            'Home',
+        )
     };
 
+    removeDeck = () => {
+        const {id, flashCardsService, removeDeckTitle} = this.props;
+
+        removeDeckTitle(id);
+
+        this.toHome();
+
+        flashCardsService.removeDeckTitle(id);
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return !!nextProps.id;
+    }
 
     componentDidMount() {
         const {navigation} = this.props;
@@ -27,7 +54,7 @@ class DeckCardDetailComponent extends Component {
 
     render() {
         const {deckCard} = this.props;
-        const {title, counts} = deckCard;
+        const {title, counts, id} = deckCard;
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -40,12 +67,14 @@ class DeckCardDetailComponent extends Component {
                 </View>
                 <View style={styles.buttonContainer}>
                     <SubmitButtonComponent onPress={() => {
-                        this.addCard();
+                        this.toAddCard();
                     }} title="Add Card" color={WHITE} backgroundColor={PURPLE}/>
                     <SubmitButtonComponent onPress={() => {
-                        this.addCard();
+                        this.toQuiz();
                     }} title="Start Quiz" color={WHITE} backgroundColor={BLUE}/>
-                    <TextButton>REMOVE DECK</TextButton>
+                    <TextButton onPress={() => {
+                        this.removeDeck()
+                    }}>REMOVE DECK</TextButton>
                 </View>
             </View>
         );
@@ -74,13 +103,24 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(decks, {route}) {
+    if (!route) return;
     const id = route.params.id;
+    if (!id) return {};
     const deck = decks[id];
+    if (!deck) return {};
     const deckCard = FlashCardsService.formatDeck(deck, id);
+    const flashCardsService = new FlashCardsService('test');
     return {
         deckCard,
-        id
+        id,
+        flashCardsService
     }
 }
 
-export default connect(mapStateToProps)(DeckCardDetailComponent);
+function mapDispatchToProps(dispatch) {
+    return {
+        removeDeckTitle: (title) => dispatch(removeDeck(title))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeckCardDetailComponent);

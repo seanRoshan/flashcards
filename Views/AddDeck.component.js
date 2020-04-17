@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
-import {ORANGE, WHITE, YELLOW} from "../utils/colors";
+import {BLACK, ORANGE, WHITE, YELLOW} from "../utils/colors";
 import {connect} from 'react-redux';
 import FlashCardsService from "../services/Flashcards.service";
 import {saveDeckTitle} from "../actions";
@@ -52,6 +52,8 @@ class AddDeckComponent extends Component {
             <View style={styles.container}>
                 <Text style={styles.title}>What is the title of you new deck?</Text>
                 <TextInput
+                    placeholder="Deck Title"
+                    placeholderTextColor={BLACK}
                     style={styles.inputField}
                     onChangeText={this.changeTitle}
                     value={title}

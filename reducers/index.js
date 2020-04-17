@@ -15,6 +15,11 @@ function decks(state = {}, action) {
                 [title]: {title, questions: []}
             }
         }
+        case APP_ACTION_TYPES.REMOVE_DECK: {
+            const {title} = action;
+            const {[title]: value, ...newState} = state;
+            return newState
+        }
         default: {
             return state;
         }

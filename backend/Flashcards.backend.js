@@ -29,6 +29,19 @@ export default class FlashcardsBackend {
         });
     }
 
+    removeDeckTitle(title) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const decks = await this.getDecks();
+                const {[title]: value, ...newDecks} = decks;
+                await AsyncStorage.setItem(this.FLASHCARD_STORAGE_KEY, JSON.stringify(newDecks))
+                return resolve(true);
+            } catch (e) {
+                return reject(e);
+            }
+        });
+    }
+
     saveDeckTitle(title) {
         return new Promise(async (resolve, reject) => {
             try {
