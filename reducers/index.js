@@ -8,6 +8,13 @@ function decks(state = {}, action) {
                 ...action.decks
             }
         }
+        case APP_ACTION_TYPES.ADD_DECK: {
+            const {title} = action;
+            return {
+                ...state,
+                [title]: {title, questions: []}
+            }
+        }
         default: {
             return state;
         }

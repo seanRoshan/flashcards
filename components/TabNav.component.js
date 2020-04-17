@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {FontAwesome, Ionicons} from "@expo/vector-icons";
+import {FontAwesome, MaterialCommunityIcons} from "@expo/vector-icons";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import DeckListComponent from "./DeckList.component";
 import {ORANGE, WHITE} from "../utils/colors";
+import AddDeckComponent from "./AddDeck.component";
 
 class TabNavComponent extends Component {
     render() {
@@ -14,18 +15,15 @@ class TabNavComponent extends Component {
 
         return (
             <Tabs.Navigator
-                initialRouteName="AddEntry"
+                initialRouteName="Decks"
                 screenOptions={({route}) => ({
                     tabBarIcon: ({color, size}) => {
                         switch (route.name) {
-                            case "Add Entry": {
+                            case "Decks": {
+                                return <MaterialCommunityIcons name="cards-outline" size={size} color={color}/>
+                            }
+                            case "Add Deck": {
                                 return <FontAwesome name="plus-square" size={size} color={color}/>
-                            }
-                            case "History": {
-                                return <Ionicons name="ios-bookmarks" size={size} color={color}/>
-                            }
-                            case "Live": {
-                                return <Ionicons name="ios-speedometer" size={size} color={color}/>
                             }
                             default:
                                 return ""
@@ -52,9 +50,8 @@ class TabNavComponent extends Component {
                     }
                 }}
             >
-                <Tabs.Screen name="Add Entry" component={DeckListComponent}/>
-                <Tabs.Screen name="History" component={DeckListComponent}/>
-                <Tabs.Screen name="Live" component={DeckListComponent}/>
+                <Tabs.Screen name="Decks" component={DeckListComponent}/>
+                <Tabs.Screen name="Add Deck" component={AddDeckComponent}/>
             </Tabs.Navigator>
         );
     }
