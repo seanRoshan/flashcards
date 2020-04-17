@@ -1,19 +1,10 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {ORANGE, WHITE} from "../utils/colors";
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {ORANGE, WHITE, YELLOW} from "../utils/colors";
 import {connect} from 'react-redux';
 import FlashCardsService from "../services/Flashcards.service";
 import {saveDeckTitle} from "../actions";
-
-function SubmitBtn({onPress}) {
-    return (
-        <TouchableOpacity
-            style={Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSubmitBtn}
-            onPress={onPress}>
-            <Text style={styles.submitBtnText}>Create Deck</Text>
-        </TouchableOpacity>
-    )
-}
+import SubmitButtonComponent from "../components/SubmitButton.component";
 
 class AddDeckComponent extends Component {
 
@@ -65,9 +56,9 @@ class AddDeckComponent extends Component {
                     onChangeText={this.changeTitle}
                     value={title}
                 />
-                <SubmitBtn onPress={() => {
+                <SubmitButtonComponent disabled={!title} onPress={() => {
                     this.submit(title);
-                }}/>
+                }} title="Create Deck" color={WHITE} backgroundColor={ORANGE}/>
             </View>
         );
     }
@@ -78,6 +69,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        backgroundColor: YELLOW,
         justifyContent: 'center'
     },
     inputField: {
@@ -92,32 +84,7 @@ const styles = StyleSheet.create({
         fontSize: 36,
         textAlign: 'center',
         marginBottom: 30
-    },
-    iosSubmitBtn: {
-        backgroundColor: ORANGE,
-        padding: 10,
-        borderRadius: 25,
-        height: 45,
-        paddingLeft: 50,
-        paddingRight: 50,
-        alignSelf: 'center',
-        justifyContent: 'center'
-    },
-    androidSubmitBtn: {
-        backgroundColor: ORANGE,
-        padding: 10,
-        borderRadius: 25,
-        height: 45,
-        paddingLeft: 50,
-        paddingRight: 50,
-        alignSelf: 'center',
-        justifyContent: 'center'
-    },
-    submitBtnText: {
-        color: WHITE,
-        fontSize: 22,
-        textAlign: 'center'
-    },
+    }
 });
 
 

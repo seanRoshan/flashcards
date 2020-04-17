@@ -1,10 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {Dimensions} from 'react-native'
-import DeckListComponent from "./DeckList.component";
 import {ORANGE, WHITE} from "../utils/colors";
 import TabNavComponent from "./TabNav.component";
-import DeckCardDetailComponent from "./DeckCardDetail.component";
+import DeckCardDetailComponent from "../Views/DeckCardDetail.component";
 
 const Stack = createStackNavigator();
 
@@ -22,12 +20,15 @@ function MainNavComponent() {
                 name="DeckCardDetail"
                 component={DeckCardDetailComponent}
                 options={{
+                    title: "",
                     headerTintColor: WHITE,
                     headerStyle: {
                         backgroundColor: ORANGE,
                     },
-                    headerTitleStyle: {width: Dimensions.get("window").width}
-                }}/>
+                    headerStatusBarHeight: 0,
+                    headerTitleAlign: 'center'
+                }}
+            />
         </Stack.Navigator>
     );
 }

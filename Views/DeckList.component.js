@@ -3,8 +3,8 @@ import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import FlashCardsService from "../services/Flashcards.service";
 import {receiveDecks} from "../actions";
-import DeckCardComponent from "./DeckCard.component";
-import {RED} from "../utils/colors";
+import DeckCardComponent from "../components/DeckCard.component";
+import {RED, YELLOW} from "../utils/colors";
 
 class DeckListComponent extends Component {
 
@@ -42,6 +42,7 @@ class DeckListComponent extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: YELLOW
     }
 });
 

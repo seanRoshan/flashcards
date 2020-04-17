@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {FontAwesome, MaterialCommunityIcons} from "@expo/vector-icons";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import DeckListComponent from "./DeckList.component";
-import {ORANGE, WHITE} from "../utils/colors";
-import AddDeckComponent from "./AddDeck.component";
+import DeckListComponent from "../Views/DeckList.component";
+import {BLACK, ORANGE, WHITE} from "../utils/colors";
+import AddDeckComponent from "../Views/AddDeck.component";
 
 class TabNavComponent extends Component {
     render() {

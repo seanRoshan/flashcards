@@ -48,7 +48,7 @@ export default class App extends Component {
             <Provider store={createStore(reducer, middleware)}>
                 <View style={{flex: 1}}>
                     <NavigationContainer>
-                        <AppStatusBarComponent backgroundColor={ORANGE} barStyle="light-content"/>
+                        <AppStatusBarComponent backgroundColor={ORANGE}/>
                         <MainNavComponent/>
                     </NavigationContainer>
                 </View>

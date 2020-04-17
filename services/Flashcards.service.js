@@ -8,10 +8,14 @@ export default class FlashCardsService {
 
     static formatDecks(results) {
         return Object.keys(results).map((key) => {
-            const deckCard = results[key];
-            return {...deckCard, id: key, counts: deckCard.questions.length}
+            return FlashCardsService.formatDeck(results[key], key)
         });
     }
+
+    static formatDeck(deck, id) {
+        return {...deck, id, counts: deck.questions.length}
+    }
+
 
     getDecks() {
         return this.flashCardMockBackEnd.getDecks();
