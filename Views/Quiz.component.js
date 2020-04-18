@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {BLACK, BLUE, ORANGE, PURPLE, RED, WHITE, YELLOW} from "../utils/colors";
+import {BLUE, ORANGE, PURPLE, RED, WHITE, YELLOW} from "../utils/colors";
 import {connect} from "react-redux";
 import FlashCardsService from "../services/Flashcards.service";
 import SubmitButtonComponent from "../components/SubmitButton.component";
+import {clearLocalNotifications, setLocalNotifications} from "../utils/helpers";
+import ContentComponent from "./Centent.component";
 
 
 const ResultComponent = (props) => {
@@ -11,15 +13,6 @@ const ResultComponent = (props) => {
     return (
         <View style={styles.resultContainer}>
             <Text style={{color: PURPLE, fontSize: 24, textAlign: 'center'}}>{`You scored ${score} points!`}</Text>
-        </View>
-    )
-}
-
-const CardComponent = (props) => {
-    const {content} = props;
-    return (
-        <View style={styles.resultContainer}>
-            <Text style={{color: BLACK, fontSize: 36, textAlign: 'center'}}>{content}</Text>
         </View>
     )
 }
@@ -92,6 +85,9 @@ class QuizComponent extends Component {
         const {navigation} = this.props;
         const {deckCard} = this.props;
         navigation.setOptions({title: `${deckCard.title} Quiz`})
+        clearLocalNotifications().then(
+            setLocalNotifications
+        );
     }
 
 
@@ -116,7 +112,7 @@ class QuizComponent extends Component {
                         <View style={styles.body}>
                             {done
                                 ? (<ResultComponent score={score}/>)
-                                : (<CardComponent content={showAnswer ? answer : question}/>)
+                                : (<ContentComponent content={showAnswer ? answer : question}/>)
                             }
                         </View>
                         <View style={styles.footer}>
@@ -150,7 +146,7 @@ class QuizComponent extends Component {
                     </React.Fragment>)
                     : (
                         <View style={styles.body}>
-                            <CardComponent
+                            <ContentComponent
                                 content="SORRY! YOU CANNOT TAKE A QUIZ BECAUSE THERE ARE NOT CARDS IN THE DECK"/>
                         </View>
                     )
@@ -198,8 +194,6 @@ const styles = StyleSheet.create({
         color: PURPLE,
         fontSize: 24
     }
-
-
 });
 
 

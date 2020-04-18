@@ -1,20 +1,13 @@
 import React, {Component} from 'react';
-import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, Text} from 'react-native';
 import {connect} from 'react-redux';
 import FlashCardsService from "../services/Flashcards.service";
 import {receiveDecks} from "../actions";
 import DeckCardComponent from "../components/DeckCard.component";
-import {RED, YELLOW} from "../utils/colors";
+import {YELLOW} from "../utils/colors";
+import ContentComponent from "./Centent.component";
 
 class DeckListComponent extends Component {
-
-
-    getDecks = () => {
-        // this.service.getDecks().then((decks) => {
-        //
-        // });
-    };
-
 
     componentDidMount() {
         const {getDecks} = this.props;
@@ -24,16 +17,21 @@ class DeckListComponent extends Component {
     render() {
         const {decks} = this.props;
         const deckCards = FlashCardsService.formatDecks(decks);
+        const counts = Object.keys(decks).length;
         return (
             <SafeAreaView style={styles.container}>
-                <FlatList
-                    data={deckCards}
-                    renderItem={({item}) => {
-                        const {title, counts, id} = item;
-                        return (<DeckCardComponent title={title} counts={counts} id={id} {...this.props}/>)
-                    }}
-                    keyExtractor={item => item.id}
-                />
+                {counts > 0
+                    ? (<FlatList
+                        data={deckCards}
+                        renderItem={({item}) => {
+                            const {title, counts, id} = item;
+                            return (<DeckCardComponent title={title} counts={counts} id={id} {...this.props}/>)
+                        }}
+                        keyExtractor={item => item.id}
+                    />)
+                    : (<ContentComponent content="YOU HAVE NO DECK"/>)
+                }
+
             </SafeAreaView>
         );
     }
