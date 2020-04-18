@@ -17,12 +17,15 @@
 ## Features
 
 - Create/Delete decks
-- Add/Remove flashcards to decks
+- Add flashcards to decks
 - Take the quiz for each deck
 - Daily study reminder with notification
-- Works with the Expo Client app.
 
 ## How to start
+
+ NOTE: This application is tested on Android Simulator, PIXEL 3 API 29 and iPhone 11
+
+- `yarn install`
 
 - `yarn ios` -- (`react-native run-ios`) Build the iOS App (requires a MacOS computer).
 - `yarn android` -- (`react-native run-android`) Build the Android App.
