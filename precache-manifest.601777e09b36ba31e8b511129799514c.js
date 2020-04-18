@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "93073bbdcf7740fb912b",
-    "url": "/flashcards/static/js/app.18cba2b0.chunk.js"
+    "revision": "6860cc0cb63ae512f3f1",
+    "url": "/flashcards/static/js/app.a0d26507.chunk.js"
   },
   {
     "revision": "8312768d5b9b2d41f230",
     "url": "/flashcards/static/js/runtime~app.1f8a3659.js"
   },
   {
-    "revision": "6690a291ea921a6d7f08",
-    "url": "/flashcards/static/js/2.d48a4644.chunk.js"
+    "revision": "a72da7d72bd8fcf45fe0",
+    "url": "/flashcards/static/js/2.7f64cb57.chunk.js"
   },
   {
     "revision": "5a293a273bee8d740a045d9922b9a9ae",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/flashcards/favicon.ico"
   },
   {
-    "revision": "55547690657e46e2b5868e548199d2ae",
+    "revision": "b85708eb460de89bab77238a34b08132",
     "url": "/flashcards/index.html"
   },
   {
