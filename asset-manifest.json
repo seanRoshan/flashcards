@@ -1,11 +1,22 @@
 {
   "files": {
-    "app.js": "/flashcards/static/js/app.5e8a7779.chunk.js",
-    "app.js.map": "/flashcards/static/js/app.5e8a7779.chunk.js.map",
+    "app.js": "/flashcards/static/js/app.a04e845b.chunk.js",
+    "app.js.map": "/flashcards/static/js/app.a04e845b.chunk.js.map",
     "runtime~app.js": "/flashcards/static/js/runtime~app.1f8a3659.js",
     "runtime~app.js.map": "/flashcards/static/js/runtime~app.1f8a3659.js.map",
-    "static/js/2.2915538a.chunk.js": "/flashcards/static/js/2.2915538a.chunk.js",
-    "static/js/2.2915538a.chunk.js.map": "/flashcards/static/js/2.2915538a.chunk.js.map",
+    "static/js/2.d48a4644.chunk.js": "/flashcards/static/js/2.d48a4644.chunk.js",
+    "static/js/2.d48a4644.chunk.js.map": "/flashcards/static/js/2.d48a4644.chunk.js.map",
+    "fonts/AntDesign.ttf": "/flashcards/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/flashcards/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/flashcards/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/flashcards/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/flashcards/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/flashcards/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Foundation.ttf": "/flashcards/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/flashcards/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/flashcards/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/flashcards/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/flashcards/./fonts/SimpleLineIcons.ttf",
     "favicon-16.png": "/flashcards/favicon-16.png",
     "favicon-32.png": "/flashcards/favicon-32.png",
     "favicon.ico": "/flashcards/favicon.ico",
@@ -15,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.1f8a3659.js",
-    "static/js/2.2915538a.chunk.js",
-    "static/js/app.5e8a7779.chunk.js"
+    "static/js/2.d48a4644.chunk.js",
+    "static/js/app.a04e845b.chunk.js"
   ]
 }
