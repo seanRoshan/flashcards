@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import DeckCardComponent from "../components/DeckCard.component";
 import FlashCardsService from "../services/Flashcards.service";
@@ -20,7 +20,7 @@ class DeckCardDetailComponent extends Component {
     }
 
     toQuiz = () => {
-        const {navigation} = this.props;
+        const {navigation, id} = this.props;
         navigation.navigate(
             'Quiz',
             {id}

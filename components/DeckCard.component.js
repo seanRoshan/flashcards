@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
         borderColor: ORANGE,
         borderWidth: 5,
         height: 100,
+        maxWidth: 200,
+        minWidth: 200
     },
     header: {
         flex: 1,
